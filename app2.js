@@ -12,8 +12,15 @@ function asignarTexto(elemento, texto) {
 }
 
 function verificarIntento() {
-    let numeroUsuario = document.getElementById('valorUsuario').value;
+    let numeroUsuario = parseInt(document.getElementById('valorUsuario').value); //parseInt transforma en int el numero que recibe del usuario
     // console.log(numeroUsuario); //valida que se este obteniendo el numero del input del usuario
+    if (numeroUsuario === numeroSecreto) {
+        asignarTexto('p', 'Acertaste!!');
+    } else if (numeroUsuario > numeroSecreto) {
+        asignarTexto('p', 'Anda, es más bajo');
+    } else {
+        asignarTexto('p', 'Andas bien, dale hacia arriba');
+    }
     return;
 }
 
