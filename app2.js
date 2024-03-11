@@ -1,7 +1,9 @@
 //document Objet Model elementos de html que permite la interación html y js
 
+let numerosSorteados = [];
 let numeroSecreto = generaNumSecreto();
 let intentos = 1;
+
 
 function asignarTexto(elemento, texto) {
     let elementoHTML = document.querySelector(elemento);
@@ -35,7 +37,18 @@ function limpiarInput() {
 }
 
 function generaNumSecreto() {
-    return Math.floor(Math.random() * 10) + 1;
+    let numeroGenerado = Math.floor(Math.random() * 10 + 1);
+    console.log(numeroGenerado);
+    console.log(numerosSorteados);
+
+    if (numerosSorteados.includes(numeroGenerado)) {
+
+        return generaNumSecreto();
+
+    } else {
+        numerosSorteados.push(numeroGenerado);
+        return numeroGenerado;
+    }
 }
 
 function condicionesIniciales() {
